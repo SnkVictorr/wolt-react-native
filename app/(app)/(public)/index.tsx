@@ -1,16 +1,45 @@
 import AppleAuthButton from "@/components/auth/AppleAuthButton";
 import GoogleAuthButton from "@/components/auth/GoogleAuthButton";
+import SmoothInfiniteScroll from "@/components/SmoothInfiniteScroll";
 import { Fonts } from "@/constants/theme";
-import { Image, Linking, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import {
+  Image,
+  Linking,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 export default function Index() {
   const openWebBrowser = () => {
     // Abre o link no navegador padrão do dispositivo
     Linking.openURL("https://politicaprivacidade.com/");
-  }
+  };
   return (
     <View style={styles.container}>
-      <View style={styles.infiniteScrollContainer}></View>
+      <View style={styles.infiniteScrollContainer}>
+        <View>
+          <SmoothInfiniteScroll scrollDirection="down" iconSet="set1" />
+        </View>
+        <View>
+          <SmoothInfiniteScroll scrollDirection="up" iconSet="set2" />
+        </View>
+        <View>
+          <SmoothInfiniteScroll scrollDirection="down" iconSet="set3" />
+        </View>
+        <LinearGradient
+          colors={["transparent", "white"]}
+          style={{
+            position: "absolute",
+            height: 200,
+            left: 0,
+            bottom: 0,
+            right: 0,
+          }}
+        />
+      </View>
       <View style={styles.contentContainer}>
         <Image
           source={require("@/assets/images/wolt-logo.png")}
@@ -36,9 +65,10 @@ export default function Index() {
         </View>
         <View style={styles.privacyContainer}>
           <Text style={styles.privacyText}>
-            Please visit{" "}
-            {/* onPress funciona em Text também */}
-            <Text style={styles.privacyLink} onPress={openWebBrowser}>Wolt Privacy Statement</Text>{" "}
+            Please visit {/* onPress funciona em Text também */}
+            <Text style={styles.privacyLink} onPress={openWebBrowser}>
+              Wolt Privacy Statement
+            </Text>{" "}
             to learn about personal data prossing at Wolt.
           </Text>
         </View>
@@ -104,5 +134,11 @@ const styles = StyleSheet.create({
   },
   infiniteScrollContainer: {
     flex: 0.8,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 4,
+    position: "relative",
+    overflow: "hidden",
   },
 });
