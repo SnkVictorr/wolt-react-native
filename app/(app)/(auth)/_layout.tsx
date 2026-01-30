@@ -4,7 +4,7 @@ import React from "react";
 const layout = () => {
   return (
     <Stack>
-      <Stack.Screen name="index" options={{ title: "Feed" }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
     </Stack>
   );
 };
