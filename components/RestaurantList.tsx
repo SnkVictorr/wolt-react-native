@@ -21,7 +21,7 @@ const RestaurantList = () => {
       </View>
     );
   }
- 
+
   const safeRestaurants = Array.isArray(restaurants) ? restaurants : [];
 
   if (error || safeRestaurants.length === 0) {
@@ -35,11 +35,11 @@ const RestaurantList = () => {
           gap: 10,
         }}
       >
-        <Ionicons name="restaurant-outline" size={44} color="#667" />
+        <Ionicons name="restaurant-outline" size={44} color={Colors.muted} />
         <Text style={{ fontSize: 16, fontWeight: "600", color: "#111" }}>
           Nenhum restaurante encontrado
         </Text>
-        <Text style={{ fontSize: 14, color: "#667", textAlign: "center" }}>
+        <Text style={{ fontSize: 14, color: Colors.muted, textAlign: "center" }}>
           Verifique sua conexão e tente novamente em instantes.
         </Text>
       </View>
@@ -47,7 +47,7 @@ const RestaurantList = () => {
   }
   return (
     <>
-      {restaurants?.map((item) => {
+      {safeRestaurants.map((item) => (
         <View key={item.id}>
           <TouchableOpacity style={styles.card}>
             <Image source={item.image!} style={styles.image} />
@@ -58,7 +58,7 @@ const RestaurantList = () => {
               </Text>
             </View>
             <View style={styles.metadata}>
-              <Ionicons name="bicycle-outline" size={16} color="#667" />
+              <Ionicons name="bicycle-outline" size={16} color={Colors.muted} />
               <Text style={styles.metadataText}>
                 €{item.deliveryFee.toFixed(2)}
               </Text>
@@ -67,11 +67,11 @@ const RestaurantList = () => {
                 €{item.deliveryFee.toFixed(2)}
               </Text>
               <Text style={styles.dot}>•</Text>
-              <Ionicons name="happy-outline" />
+              <Ionicons name="happy-outline" size={16} color={Colors.muted} />
             </View>
           </TouchableOpacity>
-        </View>;
-      })}
+        </View>
+      ))}
     </>
   );
 };
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 14,
-    color: "#667",
+    color: Colors.muted,
   },
   metadata: {
     borderTopColor: Colors.light,
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   },
   metadataText: {
     fontSize: 13,
-    color: "#667",
+    color: Colors.muted,
   },
   dot: {
     fontSize: 13,
