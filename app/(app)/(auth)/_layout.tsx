@@ -8,6 +8,7 @@ const layout = () => {
   return (
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="(modal)/map" />
       <Stack.Screen
         name="(modal)/location"
         options={{

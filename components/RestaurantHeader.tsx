@@ -112,14 +112,16 @@ const RestaurantHeader = ({ title, scrollOffset }: RestaurantHeaderProps) => {
         </Link>
 
         <View style={styles.rightIcons}>
-          <Link href={"../(modal)/filter"} asChild>
+          <Link href={"/(app)/(auth)/(modal)/filter"} asChild>
             <TouchableOpacity style={styles.iconButton}>
               <Ionicons name="filter" size={20} />
             </TouchableOpacity>
           </Link>
-          <TouchableOpacity style={styles.iconButton}>
-            <Ionicons name="map-outline" size={20} />
-          </TouchableOpacity>
+          <Link href={"/(app)/(auth)/(modal)/map"} asChild>
+            <TouchableOpacity style={styles.iconButton}>
+              <Ionicons name="map-outline" size={20} />
+            </TouchableOpacity>
+          </Link>
         </View>
       </Animated.View>
 
